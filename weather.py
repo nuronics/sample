@@ -10,7 +10,7 @@ owmapikey=os.environ.get('4880f488e7141442da2967d2d90954f6') #or provide your ke
 owm = pyowm.OWM(owmapikey)
 
 #geting and sending response to dialogflow
-@app.route('/',methods=['POST'])
+@app.route('/webhook',methods=['POST'])
 def webhook():
     try:               
             req = request.get_json(force=True)
@@ -126,4 +126,4 @@ def makeWebhookResult(data):
 if __name__ == '__main__':
      port = int(os.getenv('PORT', 5000))
      print("Starting app on port %d" % port)
-     app.run(debug=False,port=port,host='0.0.0.0')
+     app.run(debug=False,port=port,host='35.226.228.46')
