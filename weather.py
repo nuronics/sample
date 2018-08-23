@@ -16,7 +16,7 @@ def webhook():
             req = request.get_json(silent=False,force=True)
             print("Request:")
             print(json.dumps(req, indent=4))
-            req=JSON.stringify(req)
+            req=json.stringify(req)
             res = processRequest(req)
             res = json.dumps(res, indent=4)
             print(res)
