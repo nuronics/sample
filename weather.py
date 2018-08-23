@@ -10,7 +10,7 @@ owmapikey=os.environ.get('4880f488e7141442da2967d2d90954f6') #or provide your ke
 owm = pyowm.OWM(owmapikey)
 
 #geting and sending response to dialogflow
-@app.route('/webhook')
+@app.route('/webhook',methods=['POST'])
 def webhook():
     try:               
         if request.method == "POST":
