@@ -28,6 +28,7 @@ def webhook():
 #processing the request from dialogflow
 def processRequest(req):
     try:
+        print("inside process request")
         result = req.get("result") 
         parameters = result.get("parameters")
         city = parameters.get("geo-city")
