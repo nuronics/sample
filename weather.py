@@ -3,7 +3,6 @@
 from flask import Flask,request,make_response
 import os,json
 import pyowm
-import os
 
 app = Flask(__name__)
 owmapikey=os.environ.get('4880f488e7141442da2967d2d90954f6') #or provide your key here
@@ -16,7 +15,6 @@ def webhook():
             req = request.get_json(silent=False,force=True)
             print("Request:")
             print(json.dumps(req, indent=4))
-            req=json.stringify(req)
             res = processRequest(req)
             res = json.dumps(res, indent=4)
             print(res)
