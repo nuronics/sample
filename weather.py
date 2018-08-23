@@ -28,7 +28,7 @@ def webhook():
     return r
 
 #processing the request from dialogflow
-'''def processRequest(req):
+def processRequest(req):
     try:
         print("inside process request")
         result = req.get("result") 
@@ -124,7 +124,7 @@ def makeWebhookResult(data):
         "source": "apiai-weather-webhook-sample"
         }
 
-    
+    '''
 if __name__ == '__main__':
      port = int(os.getenv('PORT', 5000))
      print("Starting app on port %d" % port)
