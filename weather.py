@@ -23,7 +23,7 @@ def webhook():
             r.headers['Content-Type'] = 'application/json'
             
     except Exception as e:
-        print("webhook exception"+(str)e)
+        print(e)
     return r
 #processing the request from dialogflow
 def processRequest(req):
@@ -54,7 +54,7 @@ def processRequest(req):
         "source": "dialogflow-weather-by-satheshrgs"
         }
     except Exception as e:
-                         print("process request exception"+(str)e)
+                         print(e)
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
