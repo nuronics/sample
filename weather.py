@@ -13,9 +13,10 @@ owm = pyowm.OWM(owmapikey)
 @app.route('/webhook',methods=['POST'])
 def webhook():
     try:               
-            req = request.get_json(force=True)
+            req = request.get_json(silent=False,force=True)
             print("Request:")
             print(json.dumps(req, indent=4))
+            req=JSON.stringify(req)
             res = processRequest(req)
             res = json.dumps(res, indent=4)
             print(res)
