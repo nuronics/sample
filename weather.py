@@ -29,7 +29,7 @@ def webhook():
 #processing the request from dialogflow
 def processRequest(req):
     try:
-        result = req.get("result"    
+        result = req.get("result") 
         parameters = result.get("parameters")
         city = parameters.get("geo-city")
         #city = 'Hyderabad'
