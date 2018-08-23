@@ -13,7 +13,7 @@ owm = pyowm.OWM(owmapikey)
 @app.route('/webhook',methods=['POST'])
 def webhook():
     try:               
-        if request.method == "POST":
+       
             req = request.get_json(silent=True, force=True)
             print("Request:")
             print(json.dumps(req, indent=4))
@@ -31,8 +31,8 @@ def processRequest(req):
     try:
         result = req.get("result"    
         parameters = result.get("parameters")
-        #city = parameters.get("geo-city")
-        city = 'Hyderabad'
+        city = parameters.get("geo-city")
+        #city = 'Hyderabad'
         observation = owm.weather_at_place(city)
         w = observation.get_weather()
         latlon_res = observation.get_location()
