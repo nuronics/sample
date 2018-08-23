@@ -13,7 +13,7 @@ owm = pyowm.OWM(owmapikey)
 @app.route('/webhook',methods=['POST'])
 def webhook():
     try:               
-       
+            print("inside webhook")
             req = request.get_json(silent=True, force=True)
             print("Request:")
             print(json.dumps(req, indent=4))
@@ -24,7 +24,7 @@ def webhook():
             r.headers['Content-Type'] = 'application/json'
             
     except Exception as e:
-        print(e)
+        print("webhook exception"+e)
     return r
 #processing the request from dialogflow
 def processRequest(req):
@@ -55,9 +55,9 @@ def processRequest(req):
         "source": "dialogflow-weather-by-satheshrgs"
         }
     except Exception as e:
-                         print(e)
+                         print("process request exception"+e)
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print("Starting app on port %d" % port)
-    app.run(debug=False, port=port, host='0.0.0.0')
+    app.run(debug=True, port=port, host='0.0.0.0')
