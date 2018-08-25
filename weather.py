@@ -1,30 +1,31 @@
-#!/usr/bin/python 
+#!/usr/bin/python
 
-from flask import Flask,requests,make_response
+from flask import Flask,request,make_response
 import os,json
 import pyowm
 
-'''app = Flask(__name__)
+app = Flask(__name__)
+'''
 owmapikey=os.environ.get('4880f488e7141442da2967d2d90954f6') #or provide your key here
 owm = pyowm.OWM(owmapikey)
 
 #geting and sending response to dialogflow
 @app.route('/webhook',methods=['POST'])
 def webhook():
-    try:               
+    try:
             req = request.get_json(force=True,silent=True)
             print("Request:")
             print(json.dumps(req, indent=4))
-           
+
             res = processRequest(req)
             res = json.dumps(res, indent=4)
             print(res)
             r = make_response(res)
             r.headers['Content-Type'] = 'application/json'
-            
+
     except Exception as e:
         print(e)
-        
+
     return r
 
 #processing the request from dialogflow
@@ -32,7 +33,7 @@ def processRequest(req):
     try:
         print("inside process request")
         #print(req.get("result"))
-        result = req.get_json("result") 
+        result = req.get_json("result")
         parameters = result.get("parameters")
         city = parameters.get("geo-city")
         #city = 'Hyderabad'
@@ -58,7 +59,8 @@ def processRequest(req):
         "source": "dialogflow-weather-by-satheshrgs"
         }
     except Exception as e:
-                         print(e)'''
+                         print(e)
+                         '''
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
