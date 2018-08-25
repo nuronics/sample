@@ -31,7 +31,7 @@ def webhook():
 def processRequest(req):
     try:
         print("inside process request")
-        print(req.get("result"))
+        #print(req.get("result"))
         result = req.get("result") 
         parameters = result.get("parameters")
         city = parameters.get("geo-city")
