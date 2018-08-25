@@ -1,6 +1,6 @@
 #!/usr/bin/python 
 
-from flask import Flask,request,make_response
+from flask import Flask,requests,make_response
 import os,json
 import pyowm
 
@@ -12,7 +12,7 @@ owm = pyowm.OWM(owmapikey)
 @app.route('/webhook',methods=['POST'])
 def webhook():
     try:               
-            req = request.get_json()
+            req = request.get_json(force=True,silent=True)
             print("Request:")
             print(json.dumps(req, indent=4))
            
@@ -32,7 +32,7 @@ def processRequest(req):
     try:
         print("inside process request")
         #print(req.get("result"))
-        result = req.get("result") 
+        result = req.get_json("result") 
         parameters = result.get("parameters")
         city = parameters.get("geo-city")
         #city = 'Hyderabad'
