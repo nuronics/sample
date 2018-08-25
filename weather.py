@@ -57,7 +57,7 @@ def processRequest(req):
         return {
         "speech": speech,
         "displayText": speech,
-        "source": "dialogflow-weather-by-satheshrgs"
+        
         }
     except Exception as e:
                          print(e)
@@ -142,7 +142,6 @@ def makeWebhookResult(data):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
     }
 
 
