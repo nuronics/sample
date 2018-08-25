@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from flask import Flask,request,make_response
+import urllib
 import os,json
 import pyowm
 
