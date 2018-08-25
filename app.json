@@ -1,23 +1,7 @@
 {
-{
-  "name": "Dialogflow weather bot",
-  "description": "Dialogflow webhook demonstration",
-  "repository": "https://github.com/nuronics/sample/",
-  "keywords": ["dialogflow", "Open Weather Map","pyowm","Weather"]
-}
-{
-  "name": "test weather bot",
-  "description": "This is the default fulfillment for a Dialogflow agents using heroku",
-  "version": "0.0.1",
-  "private": true,
-  "license": "Apache Version 2.0",
-  "author": "Google Inc.",
-  "engines": {
-    "node": "6.0"
-  },
-  "dependencies": {
-    "actions-on-google": "^2.2.0",
-    "dialogflow": "^0.6.0",
-    "dialogflow-fulfillment": "0.5.0"
-  }
+  "name": "API.AI webhook demonstration",
+  "description": "API.AI webhook demonstration",
+  "repository": "https://github.com/ashokpsg/apiai-weather-webhook-sample",
+  "logo": "http://xvir.github.io/img/apiai.png",
+  "keywords": ["api.ai", "natural language"]
 }
