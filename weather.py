@@ -3,84 +3,25 @@
 from flask import Flask,request,make_response
 import urllib
 import os,json
-import pyowm
+
 
 app = Flask(__name__)
-'''
-owmapikey=os.environ.get('4880f488e7141442da2967d2d90954f6') #or provide your key here
-owm = pyowm.OWM(owmapikey)
 
-#geting and sending response to dialogflow
-@app.route('/webhook',methods=['POST'])
-def webhook():
-    try:
-            req = request.get_json(force=True,silent=True)
-            print("Request:")
-            print(json.dumps(req, indent=4))
-
-            res = processRequest(req)
-            res = json.dumps(res, indent=4)
-            print(res)
-            r = make_response(res)
-            r.headers['Content-Type'] = 'application/json'
-
-    except Exception as e:
-        print(e)
-
-    return r
-
-#processing the request from dialogflow
-def processRequest(req):
-    try:
-        print("inside process request")
-        #print(req.get("result"))
-        result = req.get_json("result")
-        parameters = result.get("parameters")
-        city = parameters.get("geo-city")
-        #city = 'Hyderabad'
-        observation = owm.weather_at_place(city)
-        w = observation.get_weather()
-        latlon_res = observation.get_location()
-        lat=str(latlon_res.get_lat())
-        lon=str(latlon_res.get_lon())
-        wind_res=w.get_wind()
-        wind_speed=str(wind_res.get('speed'))
-        humidity=str(w.get_humidity())
-        celsius_result=w.get_temperature('celsius')
-        temp_min_celsius=str(celsius_result.get('temp_min'))
-        temp_max_celsius=str(celsius_result.get('temp_max'))
-        fahrenheit_result=w.get_temperature('fahrenheit')
-        temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
-        temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
-        speech = "Today the weather in " + city + ": \n" + "Temperature in Celsius:\nMax temp :"+temp_max_celsius+".\nMin Temp :"+temp_min_celsius+".\nTemperature in Fahrenheit:\nMax temp :"+temp_max_fahrenheit+".\nMin Temp :"+temp_min_fahrenheit+".\nHumidity :"+humidity+".\nWind Speed :"+wind_speed+"\nLatitude :"+lat+".\n  Longitude :"+lon
-        print(speech)
-        return {
-        "speech": speech,
-        "displayText": speech,
-        
-        }
-    except Exception as e:
-                         print(e)
-                         '''
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
 
-    print("Request:")
-    print(json.dumps(req, indent=4))
-
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
-    # print(res)
+    
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
 
 
 def processRequest(req):
-    print("Request:")
-    print(json.dumps(req, indent=4))
+    
     if req.get("result").get("action") == "yahooWeatherForecast":
         print("req has got some thing")
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
