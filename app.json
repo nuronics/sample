@@ -1,11 +1,12 @@
 {
+{
   "name": "Dialogflow weather bot",
   "description": "Dialogflow webhook demonstration",
-  "repository": "https://github.com/satheshrgs/weather_bot/",
+  "repository": "https://github.com/nuronics/sample/",
   "keywords": ["dialogflow", "Open Weather Map","pyowm","Weather"]
 }
 {
-  "name": "dialogflowFirebaseFulfillment",
+  "name": "test weather bot",
   "description": "This is the default fulfillment for a Dialogflow agents using heroku",
   "version": "0.0.1",
   "private": true,
@@ -13,10 +14,6 @@
   "author": "Google Inc.",
   "engines": {
     "node": "6.0"
-  },
-  "scripts": {
-    "start": "firebase serve --only functions:dialogflowFirebaseFulfillment",
-    "deploy": "firebase deploy --only functions:dialogflowFirebaseFulfillment"
   },
   "dependencies": {
     "actions-on-google": "^2.2.0",
