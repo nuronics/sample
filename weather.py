@@ -64,7 +64,7 @@ def processRequest(req):
                          '''
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    req = Request.get_json(silent=True, force=True)
+    req = flask.Request.get_json(silent=True, force=True)
 
     print("Request:")
     print(json.dumps(req, indent=4))
