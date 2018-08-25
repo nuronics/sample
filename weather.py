@@ -81,6 +81,7 @@ def processRequest(req):
     print("Request:")
     print(json.dumps(req, indent=4))
     if req.get("result").get("action") == "yahooWeatherForecast":
+        print("req has got some thing")
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
         yql_query = makeYqlQuery(req)
         if yql_query is None:
