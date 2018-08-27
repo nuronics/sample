@@ -6,11 +6,11 @@ import os
 from flask import Flask, make_response, Request
 
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    req = flask.request.get_json(silent=True, force=True)
+    req = request.get_json(silent=True, force=True)
 
     res = processRequest(req)
 
