@@ -8,7 +8,7 @@ from flask import Flask, make_response, request
 
 app = Flask(__name__)
 
-@app.route('/webhook', methods=['POST' , 'GET'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
 
@@ -34,8 +34,8 @@ def processRequest(req):
     return res
 
 def makeYqlQuery(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
+    result = req.get("Result")
+    parameters = result.get("Parameters")
     city = parameters.get("geo-city")
     if city is None:
         return None
@@ -83,6 +83,6 @@ def makeWebhookResult(data):
 
 
 if __name__ == '__main__':
-     port = int(os.getenv('PORT', 5000))
-     print("Starting app on port %d" % port)
-     app.run(debug=False,port=port,host='0.0.0.0')
+     'port = int(os.getenv('PORT', 5000))
+    ' print("Starting app on port %d" % port)
+     app.run(debug=True,port=5000)
