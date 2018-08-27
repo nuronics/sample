@@ -8,7 +8,7 @@ from flask import Flask, make_response, Request
 
 app = Flask(__name__)
 
-@app.route('/webhook', methods=['POST'])
+@app.route('/webhook', methods=['POST' , 'GET'])
 def webhook():
     req = Request.get_json(silent=True, force=True)
 
