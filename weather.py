@@ -3,14 +3,14 @@
 import json
 import os
 
-from flask import Flask, make_response, Request
+from flask import Flask, make_response, request
 
 
 app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST' , 'GET'])
 def webhook():
-    req = Request.get_json(silent=True, force=True)
+    req = request.get_json(silent=True, force=True)
 
     res = processRequest(req)
 
