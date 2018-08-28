@@ -15,7 +15,7 @@ owm = pyowm.OWM(owmapikey)
 # geting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    req = flask.request.get()
+    req = flask.request.get_json()
 
     print("Request:")
     print(json.dumps(req, indent=4))
