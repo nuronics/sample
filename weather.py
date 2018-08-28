@@ -8,7 +8,7 @@ import flask
 import pyowm
 
 app = flask.Flask(__name__)
-owmapikey = os.environ.get('4880f488e7141442da2967d2d90954f6')  # or provide your key here
+owmapikey = os.environ.get('58a80508eef235a5468ab9fc5be52309')  # or provide your key here
 owm = pyowm.OWM(owmapikey)
 
 
