@@ -15,7 +15,7 @@ owm = pyowm.OWM(owmapikey)
 # geting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    req = flask.request.get_json(silent=True, force=True)
+    req = flask.request.get()
 
     print("Request:")
     print(json.dumps(req, indent=4))
@@ -33,8 +33,8 @@ def webhook():
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    # city = parameters.get("geo-city")
-    city = 'Hyderabad'
+    city = parameters.get("geo-city")
+    #city = 'Hyderabad'
     observation = owm.weather_at_place(city)
     w = observation.get_weather()
     latlon_res = observation.get_location()
