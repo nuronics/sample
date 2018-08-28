@@ -8,8 +8,8 @@ import flask
 import pyowm
 
 app = flask.Flask(__name__)
-owmapikey = os.environ.get(baad226337a690b27799026c5f53ffa6)  # or provide your key here
-owm = pyowm.OWM(owmapikey)
+#owmapikey = environ.get('baad226337a690b27799026c5f53ffa6')  # or provide your key here
+owm = pyowm.OWM(API_key='baad226337a690b27799026c5f53ffa6')
 
 
 # geting and sending response to dialogflow
