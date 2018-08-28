@@ -7,14 +7,17 @@ import flask
 import pyowm
 
 app = flask.Flask(__name__)
-#owmapikey = environ.get('baad226337a690b27799026c5f53ffa6')  # or provide your key here
+#owmapikey = environ.get('baad226337a690b27799026c5f53ffa6')  # i have omitted this line as the os.environ.get is not binding key 
 owm = pyowm.OWM(API_key='baad226337a690b27799026c5f53ffa6')
 
 
 # geting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    req = flask.request.get_json()
+    req = flask.request.get_json()''' --->i am getting http bad request here. and on line 37
+    previously request.get_json() was returning null. on doing some google i have understood that it is a version problem of dialogflow APi.
+    (they have developed a new version named APIv2 which supports some additional features but the json format of receiving data is different in v1 and v2
+    am have problem there only'''
 
     print("Request:")
     print(json.dumps(req, indent=4))
