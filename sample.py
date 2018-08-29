@@ -44,8 +44,8 @@ def processRequest(req):
         "source": "dialogflow-weather-by-satheshrgs"
     }
 
-def getweatherDesc(dict) :
-    ass = json_data
+def getweatherDesc(json_data1) :
+    ass = json_data1
     weather = ass.get('data').get('current_condition')
     weatherD = str(weather)
     print(type(weatherD))
