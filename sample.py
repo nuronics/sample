@@ -51,8 +51,9 @@ def getweatherDesc(json_data1) :
     weatherD = str(weather)
     print(type(weatherD))
     weatherD = ast.literal_eval(str(weather[0]))
+    stat = ast.literal_eval(str(weatherD.get('weatherDesc')[0])).get('value')
     print(ast.literal_eval(str(weatherD.get('weatherDesc')[0])).get('value'))
-    return
+    return stat
 
 
 if __name__ == '__main__':
