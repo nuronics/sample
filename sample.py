@@ -37,7 +37,7 @@ def processRequest(req):
     json_data = requests.get(url).json()
     weatherDesc = getweatherDesc(json_data)  
     
-    speech = "Today the weather in " + city + ": \n" +weatherDesc
+    speech = "Today the weather in " + city + ": \n" + weatherDesc
     print(speech)
     return {
         "speech": speech,
